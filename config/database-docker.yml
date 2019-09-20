@@ -2,9 +2,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: localhost
+  host: postgres
   user: postgres
-  password: xtz7qr87
  
 development:
   <<: *default
@@ -18,4 +17,4 @@ production:
   <<: *default
   database: onebittweet_production
   username: OneBitTwitter
-  password: <%= ENV['ONEBITTWEETDATABASE_PASSWORD'] %>
+  password: <%= ENV['ONEBITTWITTER_DATABASE_PASSWORD'] %>
