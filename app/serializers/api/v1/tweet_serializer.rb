@@ -1,12 +1,12 @@
 module Api
   module V1
     class TweetSerializer < ActiveModel::Serializer
-      attributes :id, :body, :tweet_orig, :retweets_count, :likes_count, :liked
+      attributes :id, :created_at, :body, :tweet_original, :retweets_count, :likes_count, :liked
       belongs_to :tweet_original
       belongs_to :user
-      
+
       def tweet_original
-        options = { each_serializer: Api::V1::TweetSerializer }
+        options = { each_serializer: Api::V1::TweetSerializer, scope: scope }
         ActiveModelSerializers::SerializableResource.new(object.tweet_original, options) if object.tweet_original
       end
 
@@ -24,7 +24,7 @@ module Api
       end
 
       def liked
-        current_user ? (current_user.liked? object) : false
+        (scope.present? && defined? scope) ? (scope.liked? object) : false
       end
     end
   end
