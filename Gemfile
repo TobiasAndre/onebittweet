@@ -35,6 +35,8 @@ gem 'knock', '~> 2.1', '>= 2.1.1'
 gem 'active_model_serializers'
 
 group :test do
+  # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
+  gem 'simplecov'
   # Generate record based in a model
   gem 'factory_bot_rails', "~> 4.0"
   # Fakker datas
