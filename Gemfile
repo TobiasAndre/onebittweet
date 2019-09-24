@@ -34,6 +34,12 @@ gem 'knock', '~> 2.1', '>= 2.1.1'
 # Serializer json
 gem 'active_model_serializers'
 
+gem 'carrierwave'
+gem 'carrierwave-base64'
+gem 'cloudinary'
+# Job scueduler execution
+gem 'sidekiq-scheduler'
+
 group :test do
   # Code coverage for Ruby 1.9+ with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov'
